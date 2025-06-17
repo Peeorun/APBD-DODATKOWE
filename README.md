@@ -1,0 +1,44 @@
+# System zarządzania konferencjami - APBD-DODATKOWE
+System zarządzania konferencjami umożliwia tworzenie wydarzeń (konferencji, warsztatów itp.), przypisywanie prelegentów (speakerów) do wydarzeń, zapisywanie uczestników i kontrolowanie dostępności miejsc. Uczestnicy mogą rejestrować się na wydarzenia (z limitem miejsc), otrzymywać potwierdzenia i anulować udział.
+
+## ENDPOINTY
+
+## WYMAGANIA FUNKCJONALNE
+
+### Utworzenie nowego wydarzenia
+
+- Wprowadzenie danych: tytuł, opis, data, maksymalna liczba uczestników.
+
+- Data wydarzenia nie może być przeszła.
+
+### Przypisanie prelegenta do wydarzenia
+
+- Możliwość przypisania wielu prelegentów do jednego wydarzenia.
+
+- Prelegent nie może być przypisany do dwóch wydarzeń w tym samym czasie.
+
+### Rejestracja uczestnika na wydarzenie
+
+- Sprawdzenie limitu miejsc – jeśli limit osiągnięty, rejestracja niemożliwa.
+
+- Uczestnik może być zarejestrowany tylko raz na dane wydarzenie.
+
+### Anulowanie rejestracji uczestnika
+
+- Uczestnik może anulować swój udział do 24 godzin przed rozpoczęciem wydarzenia.
+
+### Pobranie listy wydarzeń z informacją o liczbie wolnych miejsc
+
+Endpoint powinien zwracać wszystkie nadchodzące wydarzenia wraz z:
+
+- nazwami prelegentów,
+
+- liczbą zarejestrowanych uczestników,
+
+- liczbą wolnych miejsc.
+
+### Wygenerowanie raportu udziału uczestników
+
+- Dla danego uczestnika zwróć wszystkie wydarzenia, w których brał udział, z datami i nazwiskami prelegentów.
+
+## Diagram ERD
