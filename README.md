@@ -1,7 +1,12 @@
 # System zarządzania konferencjami - APBD-DODATKOWE
 System zarządzania konferencjami umożliwia tworzenie wydarzeń (konferencji, warsztatów itp.), przypisywanie prelegentów (speakerów) do wydarzeń, zapisywanie uczestników i kontrolowanie dostępności miejsc. Uczestnicy mogą rejestrować się na wydarzenia (z limitem miejsc), otrzymywać potwierdzenia i anulować udział.
 
+## Diagram ERD
+https://github.com/Peeorun/APBD-DODATKOWE/blob/main/DiagramERD.png
+![DiagramERD](https://github.com/Peeorun/APBD-DODATKOWE/blob/main/DiagramERD.png)
+
 ## ENDPOINTY
+
 
 ## WYMAGANIA FUNKCJONALNE
 
@@ -41,4 +46,4 @@ Endpoint powinien zwracać wszystkie nadchodzące wydarzenia wraz z:
 
 - Dla danego uczestnika zwróć wszystkie wydarzenia, w których brał udział, z datami i nazwiskami prelegentów.
 
-## Diagram ERD
+
