@@ -32,7 +32,7 @@ public class ParticipantService : IParticipantService
                 Title = r.Event.Title,
                 StartDate = r.Event.StartDate,
                 EndDate = r.Event.EndDate,
-                SpeakerNames = r.Event.EventSpeakers.Select(es => $"{es.Speaker.FirstName} {es.Speaker.LastName}").ToList()
+                SpeakerNames = r.Event.EventSpeakers.Select(es => $"{es.Speaker.LastName}").ToList()
             })
             .ToListAsync();
 
