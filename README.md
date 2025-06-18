@@ -8,8 +8,7 @@ https://github.com/Peeorun/APBD-DODATKOWE/blob/main/DiagramERD.png
 ## ENDPOINTY
 Aby sprawdzić endpointy zachęcam do skorzystania ze swagger /swagger
 
-### POST /api/events
-Przykładowe body:
+### Utworzenie wydarzenia - POST /api/events
 ```json
 {
   "title": "Konferencja IT 2025",
@@ -17,6 +16,21 @@ Przykładowe body:
   "startDate": "2025-07-15T09:00:00",
   "endDate": "2025-07-15T17:00:00",
   "maxParticipants": 200
+}
+```
+
+### Przypisanie prelegenta - POST /api/events/1/speakers
+```json
+{
+  "idSpeaker": 1,
+  "presentationTitle": "Przyszłość AI w biznesie"
+}
+```
+
+### Rejestracja uczestnika - POST /api/events/1/register
+```json
+{
+  "idParticipant": 1
 }
 ```
 
