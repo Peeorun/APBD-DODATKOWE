@@ -1,6 +1,203 @@
-@APBD_DODATKOWE_HostAddress = http://localhost:5173
+### Zmienne środowiskowe
+@baseUrl = http://localhost:5173
+@contentType = application/json
 
-GET {{APBD_DODATKOWE_HostAddress}}/weatherforecast/
-Accept: application/json
+### ========================================
+### EVENTS - Zarządzanie wydarzeniami
+### ========================================
+
+### Utworzenie nowego wydarzenia
+# @name CreateEvent
+POST {{baseUrl}}/api/events
+Content-Type: {{contentType}}
+
+{
+  "title": "Konferencja IT 2025",
+  "description": "Najnowsze trendy w technologii informatycznej",
+  "startDate": "2025-07-15T09:00:00",
+  "endDate": "2025-07-15T17:00:00",
+  "maxParticipants": 10
+}
+
+###
+
+### Utworzenie nowego wydarzenia 2
+# @name CreateEvent
+POST {{baseUrl}}/api/events
+Content-Type: {{contentType}}
+
+{
+  "title": "PJAIT AI SUMMIT",
+  "description": "Najnowsze trendy AI",
+  "startDate": "2025-07-15T09:00:00",
+  "endDate": "2025-07-15T17:00:00",
+  "maxParticipants": 3
+}
+
+###
+
+### Utworzenie nowego wydarzenia 3
+# @name CreateEvent
+POST {{baseUrl}}/api/events
+Content-Type: {{contentType}}
+
+{
+  "title": "POZNE WYDARZENIE",
+  "description": "pozno juz",
+  "startDate": "2025-06-18T09:00:00",
+  "endDate": "2025-07-18T17:00:00",
+  "maxParticipants": 2
+}
+
+###
+
+###
+
+### Utworzenie nowego wydarzenia 4
+# @name CreateEvent
+POST {{baseUrl}}/api/events
+Content-Type: {{contentType}}
+
+{
+  "title": "TO JUZ BYLO",
+  "description": "bylo juz",
+  "startDate": "2025-06-17T09:00:00",
+  "endDate": "2025-06-17T17:00:00",
+  "maxParticipants": 2
+}
+
+###
+
+### Utworzenie wydarzenia z błędną datą (test walidacji)
+# @name CreateEventWithPastDate  
+POST {{baseUrl}}/api/events
+Content-Type: {{contentType}}
+
+{
+  "title": "Wydarzenie z przeszłości",
+  "description": "Test walidacji daty",
+  "startDate": "2024-01-01T09:00:00",
+  "endDate": "2024-01-01T17:00:00",
+  "maxParticipants": 50
+}
+
+###
+
+### Pobranie wszystkich nadchodzących wydarzeń
+# @name GetUpcomingEvents
+GET {{baseUrl}}/api/events
+
+###
+
+### Pobranie konkretnego wydarzenia
+# @name GetEventById
+GET {{baseUrl}}/api/events/1
+
+###
+
+### Pobranie nieistniejącego wydarzenia (test 404)
+# @name GetNonExistentEvent
+GET {{baseUrl}}/api/events/99999
+
+###
+
+### Przypisanie prelegenta do wydarzenia
+# @name AssignSpeaker
+POST {{baseUrl}}/api/events/2/speakers
+Content-Type: {{contentType}}
+
+{
+  "idSpeaker": 2,
+  "presentationTitle": "Przyszłość sztucznej inteligencji w biznesie"
+}
+
+###
+
+### Przypisanie prelegenta z konfliktem czasowym (test walidacji)
+# @name AssignSpeakerConflict
+POST {{baseUrl}}/api/events/2/speakers
+Content-Type: {{contentType}}
+
+{
+  "idSpeaker": 1,
+  "presentationTitle": "Druga prezentacja tego samego prelegenta"
+}
+
+###
+
+### Rejestracja uczestnika na wydarzenie
+# @name RegisterParticipant
+POST {{baseUrl}}/api/events/1/register
+Content-Type: {{contentType}}
+
+{
+  "idParticipant": 1
+}
+
+###
+
+### Próba ponownej rejestracji tego samego uczestnika (test duplikatu)
+# @name RegisterParticipantDuplicate
+POST {{baseUrl}}/api/events/1/register
+Content-Type: {{contentType}}
+
+{
+  "idParticipant": 1
+}
+
+###
+
+### Rejestracja na wydarzenie z limitem miejsc
+# @name RegisterParticipantFullEvent
+POST {{baseUrl}}/api/events/3/register
+Content-Type: {{contentType}}
+
+{
+  "idParticipant": 3
+}
+
+###
+
+### Anulowanie rejestracji uczestnika
+# @name CancelRegistration
+DELETE {{baseUrl}}/api/events/3/register/1
+
+###
+
+### Próba anulowania rejestracji na ostatnią chwilę (test 24h rule)
+# @name CancelRegistrationTooLate
+DELETE {{baseUrl}}/api/events/4/register/1
+
+###
+
+### ========================================
+### PARTICIPANTS - Raporty uczestników
+### ========================================
+
+### Raport uczestnictwa dla konkretnego uczestnika
+# @name GetParticipantReport
+GET {{baseUrl}}/api/participants/2/report
+
+###
+
+### Raport dla nieistniejącego uczestnika (test 404)
+# @name GetNonExistentParticipantReport
+GET {{baseUrl}}/api/participants/99999/report
+
+###
+
+
+
+### Kolejne wydarzenie
+POST {{baseUrl}}/api/events
+Content-Type: {{contentType}}
+
+{
+  "title": "Szkolenie z baz danych",
+  "description": "Optymalizacja zapytań SQL",
+  "startDate": "2025-08-15T09:00:00",
+  "endDate": "2025-08-15T17:00:00",
+  "maxParticipants": 30
+}
 
 ###
