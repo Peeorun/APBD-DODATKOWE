@@ -6,6 +6,7 @@ https://github.com/Peeorun/APBD-DODATKOWE/blob/main/DiagramERD.png
 ![DiagramERD](https://github.com/Peeorun/APBD-DODATKOWE/blob/main/DiagramERD.png)
 
 ## ENDPOINTY
+Aby sprawdzić endpointy zachęcam do skorzystania ze swagger /swagger
 
 ### POST /api/events
 Przykładowe body:
