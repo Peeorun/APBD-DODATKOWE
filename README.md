@@ -7,6 +7,17 @@ https://github.com/Peeorun/APBD-DODATKOWE/blob/main/DiagramERD.png
 
 ## ENDPOINTY
 
+### POST /api/events
+Przykładowe body:
+```json
+{
+  "title": "Konferencja IT 2025",
+  "description": "Najnowsze trendy w technologii",
+  "startDate": "2025-07-15T09:00:00",
+  "endDate": "2025-07-15T17:00:00",
+  "maxParticipants": 200
+}
+```
 
 ## WYMAGANIA FUNKCJONALNE
 
