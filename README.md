@@ -34,6 +34,15 @@ Aby sprawdzić endpointy zachęcam do skorzystania ze swagger /swagger
 }
 ```
 
+### Anulowanie rejestracji uczestnika - DELETE /api/events/1/register/1
+
+
+### Raport uczestnictwa dla konkretnego uczestnika - GET /api/participants/1/report
+
+### Pobranie wszystkich nadchodzących wydarzeń - GET /api/events
+
+###
+
 ## WYMAGANIA FUNKCJONALNE
 
 ### Utworzenie nowego wydarzenia
